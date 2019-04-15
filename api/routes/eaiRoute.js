@@ -7,4 +7,7 @@ module.exports = function(app) {
 
   app.route('/api/capitalWeather')
     .get(eaiController.getCapitalWeather);
+
+  app.route('/api/forecastWeather')
+    .get(eaiController.getForecastWeather);
 };

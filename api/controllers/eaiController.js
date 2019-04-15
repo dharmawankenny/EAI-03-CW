@@ -27,7 +27,6 @@ export function example(req, res) {
 export async function getCapitalWeather(req, res) {
   try {
     const country = req.query.country;
-
     const countryData = await countriesAPI.get(`/name/${country}`);
 
     if (!countryData || countryData.status !== 200 || !countryData.data.length) res.send({ status: '404', message: 'Country Not Found' });
@@ -35,6 +34,25 @@ export async function getCapitalWeather(req, res) {
     const mostRelevantCountryResult = countryData.data[0];
 
     const currentWeatherData = await weatherAPI.get(`/weather?q=${mostRelevantCountryResult.capital},${mostRelevantCountryResult.alpha3Code}`);
+
+    res.send({
+      current: currentWeatherData.data,
+    });
+  } catch (err) {
+    res.send(err);
+  }
+}
+
+export async function getForecastWeather(req, res) {
+  try {
+    const country = req.query.country;
+    const countryData = await countriesAPI.get(`/name/${country}`);
+
+    if (!countryData || countryData.status !== 200 || !countryData.data.length) res.send({ status: '404', message: 'Country Not Found' });
+
+    const mostRelevantCountryResult = countryData.data[0];
+
+    const currentWeatherData = await weatherAPI.get(`/forecast?q=${mostRelevantCountryResult.capital},${mostRelevantCountryResult.alpha2Code}`);
 
     res.send({
       current: currentWeatherData.data,
