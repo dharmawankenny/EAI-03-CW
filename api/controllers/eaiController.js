@@ -1,5 +1,3 @@
-// var mongoose = require('mongoose'),
-// Task = mongoose.model('Tasks');
 import axios from 'axios';
 
 const rapidAPIKey = '0e44b53391mshc1447918d7fb6a1p10d453jsn715d3b3d4502';

@@ -1,15 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styled from 'styled-components';
 
+import CapitalWeather from './containers/CapitalWeather';
 import CountryList from './containers/CountryList';
 
 export default function App() {
+  const [selectedCountry, setSelectedCountry] = useState('');
+
   return (
     <Wrapper>
       <Title>Cuaca</Title>
       <SubTitle>Dapatkan informasi cuaca dari ibu kota negara apapun di dunia ini.</SubTitle>
-      <CountryList />
+      <CountryList setSelectedCountry={setSelectedCountry} />
+      <CapitalWeather selectedCountry={selectedCountry} setSelectedCountry={setSelectedCountry} />
     </Wrapper>
   );
 }
