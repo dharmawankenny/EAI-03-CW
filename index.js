@@ -3,22 +3,22 @@ const express = require('express'),
   sslRedirect = require('heroku-ssl-redirect'),
   bodyParser = require('body-parser'),
   cors = require('cors'),
-  routes = require('./api/routes/eaiRoute'),
-  app = express(),
+  apiRoutes = require('./api/routes/eaiRoute'),
+  server = express(),
   PORT = process.env.PORT || 5000;
 
 // enable ssl redirect
-app.use(sslRedirect());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use(cors());
+server.use(sslRedirect());
+server.use(bodyParser.urlencoded({ extended: true }));
+server.use(bodyParser.json());
+server.use(cors());
 
-app.options('*', cors())
-routes(app);
+server.options('*', cors())
+apiRoutes(server);
 
-app
-  .use('/', express.static(path.join(__dirname, 'dist')))
-  .get('*', (req, res) => res.sendFile(path.join(__dirname, 'dist/index.html')))
+server
+  .use('/', express.static(path.join(__dirname, 'client')))
+  .get('*', (req, res) => res.sendFile(path.join(__dirname, 'client/index.html')))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
-console.log('Mock RESTful API server started on: ' + PORT);
+console.log('EAI CW 03 server started on: ' + PORT);
