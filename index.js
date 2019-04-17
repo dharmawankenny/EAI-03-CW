@@ -1,6 +1,3 @@
-require('babel-register');
-require('babel-polyfill');
-
 const express = require('express'),
   path = require('path'),
   sslRedirect = require('heroku-ssl-redirect'),
@@ -20,10 +17,8 @@ app.options('*', cors())
 routes(app);
 
 app
-  .use(express.static(path.join(__dirname, 'public')))
-  .set('views', path.join(__dirname, 'views'))
-  .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
+  .use('/', express.static(path.join(__dirname, 'dist')))
+  .get('*', (req, res) => res.sendFile(path.join(__dirname, 'dist/index.html')))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`));
 
 console.log('Mock RESTful API server started on: ' + PORT);
