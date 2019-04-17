@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "dev:client": "parcel ./client/index.html",
-    "dev:server": "nodemon --exec babel-node ./index.js",
+    "dev:server": "nodemon --exec babel-node ./index.js --no-babelrc --presets=@babel/preset-env --plugins=@babel/plugin-transform-runtime --ignore 'client/*','dist/*','node_modules/*','.heroku/*'",
     "build:client": "parcel build ./client/index.html -d dist/client",
     "build:server": "babel ./ --no-babelrc --presets=@babel/preset-env --plugins=@babel/plugin-transform-runtime --ignore 'client/*','dist/*','node_modules/*','.heroku/*' --out-dir dist",
     "build": "run-s build:server build:client",

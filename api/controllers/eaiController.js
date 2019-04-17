@@ -20,8 +20,18 @@ const weatherAPI = axios.create({
   },
 });
 
-export function example(req, res) {
-  res.json({ example: 'Hello World' });
+export async function getAllCountries(req, res) {
+  try {
+    const countriesData = await countriesAPI.get('/all');
+
+    if (!countriesData || countriesData.status !== 200 || !countriesData.data.length) res.send({ status: '404', message: 'Countries Not Found' });
+
+    const countriesNames = countriesData.data.map(country => ({ name: country.name, subregion: country.subregion }));
+
+    res.send(countriesNames);
+  } catch (err) {
+    res.send(err);
+  }
 }
 
 export async function getCapitalWeather(req, res) {

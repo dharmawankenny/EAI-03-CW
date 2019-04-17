@@ -2,11 +2,14 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+import CountryList from './containers/CountryList';
+
 export default function App() {
   return (
     <Wrapper>
       <Title>Cuaca</Title>
       <SubTitle>Dapatkan informasi cuaca dari ibu kota negara apapun di dunia ini.</SubTitle>
+      <CountryList />
     </Wrapper>
   );
 }
@@ -28,13 +31,13 @@ const Title = styled.h1`
   margin: 6rem 0 1rem;
   color: #333;
   text-align: left;
-  font-size: 3rem;
+  font-size: 4.5rem;
   font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.2rem;
+  letter-spacing: -0.1rem;
 `;
 
-const SubTitle = styled.h3`
+const SubTitle = styled.span`
   width: 100%;
   margin: 0 0 2rem;
   color: #999;
