@@ -10,10 +10,10 @@
     "dev:client": "parcel ./client/index.html",
     "dev:server": "nodemon --exec babel-node ./index.js",
     "build:client": "parcel build ./client/index.html -d dist/client",
-    "build:server": "babel ./ --no-babelrc --presets=@babel/preset-env --plugins=@babel/plugin-transform-runtime --ignore client,dist,node_modules --out-dir dist",
+    "build:server": "babel ./ --no-babelrc --presets=@babel/preset-env --plugins=@babel/plugin-transform-runtime --ignore 'client/*','dist/*','node_modules/*' --out-dir dist",
     "build": "run-s build:server build:client",
     "prod": "node dist/index.js",
-    "test": "node test.js"
+    "test": "no test is specified"
   },
   "dependencies": {
     "@babel/core": "^7.4.3",
