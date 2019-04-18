@@ -16,6 +16,7 @@ export default function CountryList(props) {
   const [countries, setCountries] = useState([]);
   const [query, setQuery] = useState('');
 
+  // For fetching data from API
   useEffect(
     () => {
       const initialFetch = async () => {

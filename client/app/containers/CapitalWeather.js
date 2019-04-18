@@ -27,6 +27,7 @@ export default function CapitalWeather(props) {
     addDays(new Date(), 7),
   ];
 
+  // For fetching data from API 
   useEffect(
     () => {
       const fetchCapitalWeather = async () => {
