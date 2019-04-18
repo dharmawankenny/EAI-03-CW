@@ -77,6 +77,7 @@ export default function CapitalWeather(props) {
     [selectedCountry]
   );
 
+  // For rendering the data from API
   return (
     <Wrapper active={selectedCountry !== ''}>
       <Header>
@@ -187,6 +188,7 @@ export default function CapitalWeather(props) {
   );
 }
 
+// CSS for styling 
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;

@@ -39,6 +39,7 @@ export default function CountryList(props) {
     []
   );
 
+  // For rendering the data from API
   return (
     <Wrapper>
       <SearchBox placeholder="Ketik nama negara atau area negara" value={query} onChange={evt => setQuery(evt.target.value)} />
@@ -56,6 +57,7 @@ export default function CountryList(props) {
   );
 }
 
+// CSS for styling 
 const Wrapper = styled.div`
   width: 100%;
   padding: 0;
