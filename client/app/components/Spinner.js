@@ -2,10 +2,10 @@ import React from 'react';
 
 import styled from 'styled-components';
 
+// Simple spinner inspired by Spin-Kit
 export default function Spinner() {
   return <SpinnerWrapper><div /><div /><div /></SpinnerWrapper>;
 }
-
 
 const SpinnerWrapper = styled.div`
 width: 100%;

@@ -6,6 +6,9 @@ import { addDays, closestIndexTo, format } from 'date-fns';
 import Spinner from '../components/Spinner';
 import api from '../services/api';
 
+// This is the container containing logics and UI
+// for fetching and displaying the weather data
+// of a country's capital, including the next 7 day forecast.
 export default function CapitalWeather(props) {
   const { selectedCountry, setSelectedCountry } = props;
   const [isLoaded, setIsLoaded] = useState(false);

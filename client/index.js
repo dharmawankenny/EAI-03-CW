@@ -1,3 +1,4 @@
+// Entry Point of the client, this renders the React app to the DOM
 import React from 'react';
 import ReactDOM from 'react-dom';
 

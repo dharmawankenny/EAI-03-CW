@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
+  "name": "eaicw03",
   "version": "0.3.0",
-  "description": "A sample Node.js app using Express 4",
+  "description": "Simple RESTful API server and consumer bundled with a React-based web app as a client.",
   "engines": {
     "node": "10.x"
   },
@@ -44,12 +44,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/dharmawankenny/EAI-03-CW"
   },
   "keywords": [
     "node",
     "heroku",
-    "express"
+    "express",
+    "react",
+    "parcel"
   ],
   "license": "MIT"
 }

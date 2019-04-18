@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import CapitalWeather from './containers/CapitalWeather';
 import CountryList from './containers/CountryList';
 
+// Root client app, this is the whole client application.
 export default function App() {
   const [selectedCountry, setSelectedCountry] = useState('');
 

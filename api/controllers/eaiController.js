@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+// Secret key, should be in the env variable but i couldn't be bothered
 const rapidAPIKey = '0e44b53391mshc1447918d7fb6a1p10d453jsn715d3b3d4502';
 
+// axios base instance to be used in accessing countries API, attached default headers needed
 const countriesAPI = axios.create({
   baseURL: 'https://restcountries-v1.p.rapidapi.com',
   headers: {
@@ -10,6 +12,7 @@ const countriesAPI = axios.create({
   },
 });
 
+// axios base instance to be used in accessing weather API, attached default headers needed
 const weatherAPI = axios.create({
   baseURL: 'https://community-open-weather-map.p.rapidapi.com',
   headers: {
@@ -18,6 +21,12 @@ const weatherAPI = axios.create({
   },
 });
 
+// This API provides access to all country list
+// simplified by only providing country name and subregion
+// as needed by the frontend, this function is a 
+// simple proxy to the countries API by redirecting
+// API call from the client to the RapidAPI server
+// and providing necessary headers and secret keys
 export async function getAllCountries(req, res) {
   try {
     const countriesData = await countriesAPI.get('/all');
@@ -32,6 +41,10 @@ export async function getAllCountries(req, res) {
   }
 }
 
+// This API provides the ability to get any weather of a capital
+// of a given country. It simply takes a country as a URL Query parameter
+// and returns the respective country's capital weather data.
+// if the country is invalid, it will return a 404
 export async function getCapitalWeather(req, res) {
   try {
     const country = req.query.country;
@@ -51,6 +64,10 @@ export async function getCapitalWeather(req, res) {
   }
 }
 
+// This API provides the ability to get any weather forecaset of a capital
+// of a given country. It simply takes a country as a URL Query parameter
+// and returns the respective country's capital forecast weather data.
+// if the country is invalid, it will return a 404
 export async function getForecastWeather(req, res) {
   try {
     const country = req.query.country;

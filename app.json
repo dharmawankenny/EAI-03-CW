@@ -1,8 +1,8 @@
 {
-  "name": "Start on Heroku: Node.js",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
+  "name": "EAI Country-Weather API & Client. Case 03",
+  "description": "Simple RESTful API server and consumer bundled with a React-based web app as a client.",
+  "repository": "https://github.com/dharmawankenny/EAI-03-CW",
   "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/master/public/node.svg",
-  "keywords": ["node", "express", "heroku"],
+  "keywords": ["node", "express", "heroku", "react", "parcel"],
   "image": "heroku/nodejs"
 }

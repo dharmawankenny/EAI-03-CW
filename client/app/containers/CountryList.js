@@ -5,6 +5,10 @@ import styled from 'styled-components';
 import Spinner from '../components/Spinner';
 import api from '../services/api';
 
+// This is the container containing logics and UI
+// for fetching and displaying the countries data
+// which includes search functionality and when a country
+// is clicked, it will show its capital weather data.
 export default function CountryList(props) {
   const { setSelectedCountry } = props;
   const [isLoaded, setIsLoaded] = useState(false);
